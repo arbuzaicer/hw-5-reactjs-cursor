@@ -8,10 +8,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.secure-section > svg {
-  font-size: 2em;
-  color: black;
-}
 
 .input,
 .input:focus {

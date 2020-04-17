@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 const EmailInput = ({ getMailValue }) => {
   const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+  const [defaultEmail, setDefaultEmail] = useState("");
   const [email, setEmail] = useState("");
   const [validationClasses, setValidationClasses] = useState("input");
   const [validMail, isValidMail] = useState(false);
@@ -9,7 +10,6 @@ const EmailInput = ({ getMailValue }) => {
   const setEmailHandler = (event) => {
     setEmail(event.target.value);
   };
-
   const mailValidator = (e) => {
     if (!e) {
       setValidationClasses("input");
@@ -29,19 +29,19 @@ const EmailInput = ({ getMailValue }) => {
   useEffect(() => {
     if (contacts.length) {
       if (contacts[contacts.length - 1].rememberMe) {
-        setEmail(contacts[contacts.length - 1].mail);
+        setDefaultEmail(contacts[contacts.length - 1].mail);
       }
     }
     mailValidator(email);
     getMailValue(email, validMail);
-  }, [email, getMailValue, validMail]);
+  }, [email, getMailValue, validMail, contacts]);
 
   return (
     <input
       className={validationClasses}
       onChange={setEmailHandler}
-      type="text"
-      value={email}
+      type="email"
+      defaultValue={defaultEmail}
       placeholder="Email Address*"
     />
   );

@@ -1,8 +1,8 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
-import routes from "./routes";
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import routes from './routes';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Section = styled.div`
   background: linear-gradient(to right, #0f1112, #252729);

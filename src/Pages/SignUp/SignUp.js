@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import SecureSection from "../../components/SecureSection";
-import EmailInput from "../../components/EmailInput";
-import PasswordInput from "../../components/PasswordInput";
-import UserData from "../../components/UserData";
-import Copyright from "../../components/Copyright";
+import SecureSection from '../../components/SecureSection';
+import EmailInput from '../../components/EmailInput';
+import PasswordInput from '../../components/PasswordInput';
+import UserData from '../../components/UserData';
+import Copyright from '../../components/Copyright';
 
 import {
-    CustomCheckbox,
-    CustomSection,
-    Form,
-    LinksSection,
-    SubmitBtn,
-    Wrapper,
-} from "../../components/Styled/StyledComponents";
+  CustomCheckbox,
+  CustomSection,
+  Form,
+  LinksSection,
+  SubmitBtn,
+  Wrapper,
+} from '../../components/Styled/StyledComponents';
 
 const SignUp = () => {
   const [firstName, getFirstName] = useState("");
@@ -53,8 +53,19 @@ const SignUp = () => {
         password,
       };
       const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
-      const resData = [...contacts, resultDataForm];
-      localStorage.setItem("contacts", JSON.stringify(resData));
+      const searchUser = contacts.find(
+        (user) =>
+          user.firstName === resultDataForm.firstName &&
+          user.lastName === resultDataForm.lastName &&
+          user.mail === resultDataForm.mail &&
+          user.password === resultDataForm.password
+      );
+      if (searchUser) {
+        alert("User Already exist");
+      } else {
+        const resData = [...contacts, resultDataForm];
+        localStorage.setItem("contacts", JSON.stringify(resData));
+      }
     } else {
       alert("Not valid Data");
     }

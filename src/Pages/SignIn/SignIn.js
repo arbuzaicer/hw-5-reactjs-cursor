@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import SecureSection from "../../components/SecureSection";
-import EmailInput from "../../components/EmailInput";
-import PasswordInput from "../../components/PasswordInput";
-import Copyright from "../../components/Copyright";
+import SecureSection from '../../components/SecureSection';
+import EmailInput from '../../components/EmailInput';
+import PasswordInput from '../../components/PasswordInput';
+import Copyright from '../../components/Copyright';
 
 import {
   CustomCheckbox,
@@ -12,7 +12,7 @@ import {
   LinksSection,
   SubmitBtn,
   Wrapper,
-} from "../../components/Styled/StyledComponents";
+} from '../../components/Styled/StyledComponents';
 
 const SignIn = () => {
   const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
@@ -36,7 +36,6 @@ const SignIn = () => {
       password,
       rememberMe,
     };
-
     const currentUser = contacts.find(
       (user) =>
         user.mail === resultDataForm.mail &&
