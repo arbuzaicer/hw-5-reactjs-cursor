@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import routes from "./routes";
 
-function App() {
+import styled from "styled-components";
+
+const Section = styled.div`
+  background: linear-gradient(to right, #0f1112, #252729);
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const App = () => {
+  const routesData = routes.map((route, index) => (
+    <Route key={route.path+index} path={route.path} exact={route.exact} component={route.component} />
+  ));
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Section>
+        <Switch>{routesData}</Switch>
+      </Section>
+    </>
   );
-}
+};
 
 export default App;

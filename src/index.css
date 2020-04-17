@@ -1,3 +1,5 @@
+@import "reset.css";
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,8 +8,30 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.secure-section > svg {
+  font-size: 2em;
+  color: black;
+}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.input,
+.input:focus {
+  border: 2px solid rgba(82, 82, 82, 0.6);
+}
+.no-validate {
+  border: 2px solid #bf0404;
+}
+.validate {
+  border: 2px solid #18bf1c;
+}
+input {
+  width: 350px;
+  height: 25px;
+  margin-bottom: 10px;
+  background: transparent;
+  border: 1px solid rgba(82, 82, 82, 0.6);
+  padding: 10px;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 1.2em;
+  outline: none;
 }
